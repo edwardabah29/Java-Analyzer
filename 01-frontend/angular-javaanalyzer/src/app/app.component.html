@@ -1,0 +1,14 @@
+<div class="container">
+  <header class="d-flex justify-content-between align-items-center my-4">
+    <div></div>
+    <div class="d-flex align-items-center">
+      <img src="assets/favicon.ico" alt="Logo" class="logo me-2">
+      <span class="logo-text">Java Analyzer</span>
+    </div>
+  </header>
+
+  <app-toggle-switch (modeChanged)="onModeChange($event)"></app-toggle-switch>
+  <app-text-input (textEntered)="onTextEntered($event)"></app-text-input>
+  <app-analyze-button [analyze]="analyzeText.bind(this)"></app-analyze-button>
+  <app-display-area [analyzedResults]="analyzedResults" [previousAnalyzedResults]="previousAnalyzedResults"></app-display-area>
+</div>

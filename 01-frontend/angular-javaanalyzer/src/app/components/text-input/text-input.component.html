@@ -1,0 +1,11 @@
+<div class="mb-3">
+    <label for="analysisType" class="form-label">Select Analysis Type:</label>
+    <select id="analysisType" class="form-select" [(ngModel)]="analysisType">
+      <option value="vowels">Vowels</option>
+      <option value="consonants">Consonants</option>
+    </select>
+  </div>
+<div class="mb-3">
+    <label for="textInput" class="form-label">Enter text:</label>
+    <input type="text" class="form-control" id="textInput" [(ngModel)]="inputText"/>
+</div>

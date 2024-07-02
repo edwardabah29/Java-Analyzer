@@ -1,0 +1,52 @@
+<div class="card mb-3">
+  <div class="card-body">  
+    <div class="card mb-3 analyzed-card">
+        <div class="card-body">
+          <div *ngIf="analyzedData.length > 0">
+            <h3 class="analyzed-title">Analyzed Result:</h3>
+            <hr>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Letters</th>
+                  <th>Occurrence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of analyzedData">
+                  <td><span [ngClass]="{'vowel-type': item.type === 'vowels', 'consonant-type': item.type === 'consonants'}">{{ item.type }}</span></td>
+                  <td>{{ item.letter }}</td>
+                  <td>{{ item.occurrence }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+    <div class="card mb-3 previous-analyzed-card">
+        <div class="card-body">
+          <div *ngIf="previousAnalyzedData.length > 0">
+            <h3 class="previous-analyzed-title">Previously Analyzed Result:</h3>
+            <hr>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Letters</th>
+                  <th>Occurrence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of previousAnalyzedData">
+                  <td><span [ngClass]="{'vowel-type': item.type === 'vowels', 'consonant-type': item.type === 'consonants'}">{{ item.type }}</span></td>
+                  <td>{{ item.letter }}</td>
+                  <td>{{ item.occurrence }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+# Node.js
+node_modules/
+dist/
+
+# Java
+target/
+.mvn/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Logs
+logs/
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
