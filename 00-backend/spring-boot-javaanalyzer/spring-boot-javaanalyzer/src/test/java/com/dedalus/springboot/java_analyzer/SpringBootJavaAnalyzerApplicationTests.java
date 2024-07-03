@@ -10,6 +10,7 @@ class SpringBootJavaAnalyzerApplicationTests {
 
 	@Test
 	void contextLoads() {
+		// If the application context cannot start, this test will fail
 	}
 
 }

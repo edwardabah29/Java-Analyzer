@@ -21,20 +21,21 @@ class TextAnalyzerServiceImplementationTest {
         Map<String, Object> result = textAnalyzerService.analyzeText("hello", "consonants");
         assertTrue(result.containsKey("consonants"));
         assertEquals(2, ((Map<?, ?>) result.get("consonants")).size());
-        assertEquals(3, ((Map<?, Integer>) result.get("consonants")).values().stream().mapToInt(Integer::intValue).sum());
+        Object consonantsObject = result.get("consonants");
+        if (consonantsObject instanceof Map<?, ?> consonantsMap) {
+            assertEquals(3, consonantsMap.values().stream().mapToInt(value -> (Integer) value).sum());
+        } else {
+            fail("Expected a Map for consonants");
+        }
     }
 
     @Test
     void testAnalyzeTextInvalidType() {
-        assertThrows(InvalidInputException.class, () -> {
-            textAnalyzerService.analyzeText("hello", "invalid");
-        });
+        assertThrows(InvalidInputException.class, () -> textAnalyzerService.analyzeText("hello", "invalid"));
     }
 
     @Test
     void testAnalyzeTextEmptyInput() {
-        assertThrows(InvalidInputException.class, () -> {
-            textAnalyzerService.analyzeText("", "vowels");
-        });
+        assertThrows(InvalidInputException.class, () -> textAnalyzerService.analyzeText("", "vowels"));
     }
 }

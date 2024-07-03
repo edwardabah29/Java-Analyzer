@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+/**
+ * REST controller for text analysis operations.
+ */
 @RestController
 @RequestMapping("/api")
 @Tag(name = "Text Analyzer", description = "API for analyzing text for vowels or consonants")
@@ -19,6 +22,12 @@ public class TextAnalyzerController {
     @Autowired
     private TextAnalyzerService textAnalyzerService;
 
+    /**
+     * Endpoint for analyzing text for vowels or consonants.
+     *
+     * @param request a map containing the type and text to be analyzed
+     * @return a map with the analysis results
+     */
     @PostMapping("/analyze")
     @Operation(summary = "Analyze text for vowels or consonants")
     public Map<String, Object> analyzeText(@RequestBody Map<String, String> request){
