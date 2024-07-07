@@ -2,6 +2,9 @@ import { Component, ViewChild } from '@angular/core';
 import { TextAnalysisService } from './services/text-analysis.service';
 import { TextInputComponent } from './components/text-input/text-input.component';
 
+/**
+ * Root component of the application.
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,11 +23,18 @@ export class AppComponent {
 
   constructor(private textAnalysisService: TextAnalysisService) {}
 
+  /**
+   * Handles text entered event.
+   * @param event The text and type entered.
+   */
   onTextEntered(event: {text: string, type: string}) {
     this.inputText = event.text;
     this.analysisType = event.type;
-}
+  }
 
+/**
+   * Analyzes the text based on the current mode.
+   */
 analyzeText() {
   this.textInputComponent.emitText();
   if (this.isOnline) {
@@ -41,6 +51,10 @@ analyzeText() {
   }
 }
 
+/**
+   * Handles mode change event.
+   * @param isOnline The new mode.
+   */
   onModeChange(isOnline: boolean) {
     this.isOnline = isOnline;
   }

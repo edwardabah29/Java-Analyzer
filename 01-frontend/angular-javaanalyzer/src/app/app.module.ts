@@ -9,7 +9,9 @@ import { AnalyzeButtonComponent } from './components/analyze-button/analyze-butt
 import { DisplayAreaComponent } from './components/display-area/display-area.component';
 import { ToggleSwitchComponent } from './components/toggle-switch/toggle-switch.component';
 
-
+/**
+ * Root module of the application.
+ */
 @NgModule({
   declarations: [
     AppComponent,

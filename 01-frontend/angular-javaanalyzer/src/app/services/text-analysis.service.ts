@@ -3,6 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+/**
+ * Service for text analysis.
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +17,12 @@ export class TextAnalysisService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Analyzes the text online.
+   * @param text The text to analyze.
+   * @param type The type of analysis.
+   * @returns An observable of the analysis result.
+   */
   analyzeOnline(text: string, type: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -25,6 +34,12 @@ export class TextAnalysisService {
     return this.http.post<any>(this.baseUrl, payload,{ headers });
   }
 
+  /**
+   * Analyzes the text offline.
+   * @param text The text to analyze.
+   * @param type The type of analysis.
+   * @returns The analysis result.
+   */
   analyzeOffline(text: string, type: string): any {
     if(type === 'vowels'){
       return this.analyzeVowels(text);
@@ -34,6 +49,11 @@ export class TextAnalysisService {
     return {};
   }
 
+  /**
+   * Analyzes vowels in the input text.
+   * @param input The input text.
+   * @returns The analysis result for vowels.
+   */
   private analyzeVowels(input: string): any{
     const vowelsCount: {[key: string]: number} = {};
     const vowels = 'aeiouAEIOU';
@@ -46,6 +66,11 @@ export class TextAnalysisService {
     return {vowels: vowelsCount};
   }
 
+  /**
+   * Analyzes consonants in the input text.
+   * @param input The input text.
+   * @returns The analysis result for consonants.
+   */
   private analyzeConsonants(input: string): any{
     const consonantsCount:{[key: string]: number} = {};
     const vowels = 'aeiouAEIOU';

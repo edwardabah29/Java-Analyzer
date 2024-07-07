@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:8080/api/analyze',
   username: 'user',
-  password: '8910eb34-9616-4769-b97c-dcf7dec401c9'
+  password: 'a8acf22b-05e3-4970-a0e3-05f098ab0b47'
 };
 
 /*
